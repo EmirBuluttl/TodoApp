@@ -256,3 +256,7 @@ input:focus {
 .delete-btn:hover {
     background: rgba(239, 68, 68, 0.1);
 }
+
+.edit-btn { background: transparent; border: none; cursor: pointer; padding: 5px; border-radius: 5px; transition: 0.2s; }
+.edit-btn:hover { background: rgba(255, 255, 255, 0.1); }
+.delete-btn { margin-left: 2px; }
