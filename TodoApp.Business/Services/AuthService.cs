@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using TodoApp.Business.DTOs;
@@ -44,7 +45,7 @@ public class AuthService : IAuthService
     public async Task<AuthResultDto> LoginAsync(LoginDto dto)
     {
         var userQuery = _userRepository.Where(u => u.Username == dto.Username);
-        var user = userQuery.FirstOrDefault();
+        var user = await userQuery.FirstOrDefaultAsync();
 
         if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
             throw new Exception("Invalid username or password.");

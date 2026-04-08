@@ -81,6 +81,18 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+// Veritabanı tablolarını (migration'ları) uygulama başlarken otomatik oluşturur.
+// Bu sayede .db dosyası nerede olursa olsun tablolar kesin olarak var olacaktır.
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.Migrate();
+}
+
+// Serve static frontend files from wwwroot folder
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
