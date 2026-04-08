@@ -9,10 +9,12 @@ let todosList = [];
 let editingId = null;
 
 // Init
-if (token) {
-    showTodoSection();
-    loadTodos();
-}
+document.addEventListener('DOMContentLoaded', () => {
+    if (token) {
+        showTodoSection();
+        loadTodos();
+    }
+});
 
 function switchAuthTab(newMode) {
     mode = newMode;
