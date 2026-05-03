@@ -83,7 +83,11 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+using TodoApp.API.Middlewares;
+
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Veritabanı tablolarını (migration'ları) uygulama başlarken otomatik oluşturur.
 // Bu sayede .db dosyası nerede olursa olsun tablolar kesin olarak var olacaktır.
