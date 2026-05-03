@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using TodoApp.Business.Services;
+using TodoApp.Business.Interfaces;
+using TodoApp.Common;
 using TodoApp.Core.Repositories;
 using TodoApp.Data.Contexts;
 using TodoApp.Data.Repositories;
@@ -12,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddHttpContextAccessor();
 
 // Configure Entity Framework Core with SQLite
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -22,6 +25,7 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITodoService, TodoService>();
+builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 
 // Configure JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");

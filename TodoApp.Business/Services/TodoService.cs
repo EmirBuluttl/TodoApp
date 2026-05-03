@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TodoApp.Business.DTOs;
 using TodoApp.Entities;
+using TodoApp.Business.Interfaces;
 using TodoApp.Core.Repositories;
 
 namespace TodoApp.Business.Services;
