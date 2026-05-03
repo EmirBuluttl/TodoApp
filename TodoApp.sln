@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApp.API", "TodoApp.API\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApp.Entities", "TodoApp.Entities\TodoApp.Entities.csproj", "{1D988648-B780-4E9E-B83C-DD0FE6F3802A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApp.Common", "TodoApp.Common\TodoApp.Common.csproj", "{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,18 @@ Global
 		{1D988648-B780-4E9E-B83C-DD0FE6F3802A}.Release|x64.Build.0 = Release|Any CPU
 		{1D988648-B780-4E9E-B83C-DD0FE6F3802A}.Release|x86.ActiveCfg = Release|Any CPU
 		{1D988648-B780-4E9E-B83C-DD0FE6F3802A}.Release|x86.Build.0 = Release|Any CPU
+		{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}.Debug|x64.Build.0 = Debug|Any CPU
+		{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}.Debug|x86.Build.0 = Debug|Any CPU
+		{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}.Release|x64.ActiveCfg = Release|Any CPU
+		{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}.Release|x64.Build.0 = Release|Any CPU
+		{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}.Release|x86.ActiveCfg = Release|Any CPU
+		{A67E6204-5DA4-4A5F-8A1E-997BF5FF3ED7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

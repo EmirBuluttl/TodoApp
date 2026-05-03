@@ -20,6 +20,7 @@
     <ProjectReference Include="..\TodoApp.Business\TodoApp.Business.csproj" />
     <ProjectReference Include="..\TodoApp.Data\TodoApp.Data.csproj" />
     <ProjectReference Include="..\TodoApp.Entities\TodoApp.Entities.csproj" />
+    <ProjectReference Include="..\TodoApp.Common\TodoApp.Common.csproj" />
   </ItemGroup>
 
 </Project>
