@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TodoApp.Business.DTOs;
@@ -13,80 +12,46 @@ namespace TodoApp.API.Controllers;
 public class TodoController : ControllerBase
 {
     private readonly ITodoService _todoService;
+    private readonly ICurrentUserService _currentUserService;
 
-    public TodoController(ITodoService todoService)
+    public TodoController(ITodoService todoService, ICurrentUserService currentUserService)
     {
         _todoService = todoService;
-    }
-
-    private int GetCurrentUserId()
-    {
-        var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        if (int.TryParse(userIdString, out int userId))
-        {
-            return userId;
-        }
-        throw new Exception("User ID not found in token.");
+        _currentUserService = currentUserService;
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var userId = GetCurrentUserId();
-        var items = await _todoService.GetAllForUserAsync(userId);
+        var items = await _todoService.GetAllForUserAsync(_currentUserService.UserId);
         return Ok(items);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
-        try
-        {
-            var userId = GetCurrentUserId();
-            var item = await _todoService.GetByIdForUserAsync(id, userId);
-            return Ok(item);
-        }
-        catch (Exception ex)
-        {
-            return NotFound(new { message = ex.Message });
-        }
+        var item = await _todoService.GetByIdForUserAsync(id, _currentUserService.UserId);
+        return Ok(item);
     }
 
     [HttpPost]
     public async Task<IActionResult> Create(CreateTodoItemDto dto)
     {
-        var userId = GetCurrentUserId();
-        var created = await _todoService.CreateAsync(dto, userId);
+        var created = await _todoService.CreateAsync(dto, _currentUserService.UserId);
         return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, UpdateTodoItemDto dto)
     {
-        try
-        {
-            var userId = GetCurrentUserId();
-            await _todoService.UpdateAsync(id, dto, userId);
-            return NoContent();
-        }
-        catch (Exception ex)
-        {
-            return NotFound(new { message = ex.Message });
-        }
+        await _todoService.UpdateAsync(id, dto, _currentUserService.UserId);
+        return NoContent();
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        try
-        {
-            var userId = GetCurrentUserId();
-            await _todoService.DeleteAsync(id, userId);
-            return NoContent();
-        }
-        catch (Exception ex)
-        {
-            return NotFound(new { message = ex.Message });
-        }
+        await _todoService.DeleteAsync(id, _currentUserService.UserId);
+        return NoContent();
     }
 }

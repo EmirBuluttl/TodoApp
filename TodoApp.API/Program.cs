@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using TodoApp.API.Middlewares;
 using TodoApp.Business.Services;
 using TodoApp.Business.Interfaces;
 using TodoApp.Common;
@@ -82,8 +83,6 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
-
-using TodoApp.API.Middlewares;
 
 var app = builder.Build();
 
