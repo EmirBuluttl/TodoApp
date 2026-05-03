@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using TodoApp.Core.Entities;
+using TodoApp.Entities;
 using TodoApp.Core.Repositories;
 using TodoApp.Data.Contexts;
 

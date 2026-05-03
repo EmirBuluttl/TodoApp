@@ -1,5 +1,5 @@
 using System.Linq.Expressions;
-using TodoApp.Core.Entities;
+using TodoApp.Entities;
 
 namespace TodoApp.Core.Repositories;
 

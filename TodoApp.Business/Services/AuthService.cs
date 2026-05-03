@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using TodoApp.Business.DTOs;
-using TodoApp.Core.Entities;
+using TodoApp.Entities;
 using TodoApp.Core.Repositories;
 
 namespace TodoApp.Business.Services;
