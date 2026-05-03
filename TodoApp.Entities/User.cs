@@ -1,4 +1,4 @@
-namespace TodoApp.Core.Entities;
+namespace TodoApp.Entities;
 
 public class User : BaseEntity
 {
